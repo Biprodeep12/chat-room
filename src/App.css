@@ -37,11 +37,7 @@ nav {
   display: grid;
   grid-template-columns: 30% 70%;
 }
-.gen {
-  background-color: white;
-  margin: 10px;
-  border-radius: 10px;
-}
+
 .chat {
   position: relative;
   display: flex;
@@ -149,4 +145,77 @@ nav {
   font-size: 20px;
   margin: 5px auto;
   border-radius: 10px;
+}
+.gen {
+  background-color: white;
+  margin: 10px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-rows: 40% 40% 20%;
+  padding: 10px;
+}
+.gen-ad1,
+.gen-ad2 {
+  background-color: aqua;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.gen-donation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+}
+.gen-donation h2 {
+  margin: -10px;
+}
+.total-dont {
+  margin: 0;
+  font-family: sans-serif;
+  font-weight: 600;
+}
+.dont {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.dont button {
+  border-radius: 10px;
+  width: 100px;
+  height: 50px;
+  border: none;
+  color: white;
+  font-size: 20px;
+  font-family: sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.dont-a {
+  background-color: rgb(34, 235, 34);
+}
+.dont-a:hover {
+  border: 4px solid rgb(34, 235, 34);
+  color: rgb(34, 235, 34);
+}
+.dont-b {
+  background-color: red;
+}
+.dont-b:hover {
+  border: 4px solid red;
+  color: red;
+}
+.dont-c {
+  background-color: gold;
+}
+.dont-c:hover {
+  border: 4px solid gold;
+  color: gold;
+}
+.dont button:hover {
+  background-color: white;
+  transform: scale(1.05);
 }
