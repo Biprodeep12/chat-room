@@ -3,7 +3,6 @@ import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, push, onChildAdded } from 'firebase/database';
 import { firebaseConfig } from '../firebase/firebase';
 
-// Utility function to format timestamp
 const formatTime = (timestamp) => {
   const date = new Date(timestamp);
   return date.toLocaleTimeString([], {
@@ -14,21 +13,17 @@ const formatTime = (timestamp) => {
 };
 
 export default function Chat() {
-  // Initialize Firebase app
   const app = initializeApp(firebaseConfig);
   const database = getDatabase(app);
 
-  // State management
   const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState('');
   const [username, setUsername] = useState('');
   const [isUsernameSet, setIsUsernameSet] = useState(false);
 
-  // Effect to listen for new messages
   useEffect(() => {
     const messagesRef = ref(database, 'messages');
 
-    // Listen for new child messages
     const unsubscribe = onChildAdded(messagesRef, (snapshot) => {
       const newMessage = {
         id: snapshot.key,
@@ -37,11 +32,9 @@ export default function Chat() {
       setMessages((prevMessages) => [...prevMessages, newMessage]);
     });
 
-    // Cleanup subscription
     return () => unsubscribe();
   }, [database]);
 
-  // Handler for setting username
   const handleSetUsername = (e) => {
     e.preventDefault();
     if (username.trim() !== '') {
@@ -49,7 +42,6 @@ export default function Chat() {
     }
   };
 
-  // Handler for sending messages
   const handleSendMessage = (e) => {
     e.preventDefault();
 
@@ -57,18 +49,15 @@ export default function Chat() {
 
     const messagesRef = ref(database, 'messages');
 
-    // Push new message to Firebase
     push(messagesRef, {
       text: inputMessage,
       username: username,
       timestamp: Date.now(),
     });
 
-    // Clear input after sending
     setInputMessage('');
   };
 
-  // Username input form
   if (!isUsernameSet) {
     return (
       <div className='username-setup'>
