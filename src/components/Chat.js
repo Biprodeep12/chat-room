@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, push, onChildAdded } from 'firebase/database';
 import { firebaseConfig } from '../firebase/firebase';
@@ -20,6 +20,14 @@ export default function Chat() {
   const [inputMessage, setInputMessage] = useState('');
   const [username, setUsername] = useState('');
   const [isUsernameSet, setIsUsernameSet] = useState(false);
+
+  const chatDisplayRef = useRef(null);
+
+  useEffect(() => {
+    if (chatDisplayRef.current) {
+      chatDisplayRef.current.scrollTop = chatDisplayRef.current.scrollHeight;
+    }
+  }, [messages]);
 
   useEffect(() => {
     const messagesRef = ref(database, 'messages');
@@ -80,7 +88,7 @@ export default function Chat() {
       <div className='chat-header'>
         <span>Logged in as: {username}</span>
       </div>
-      <div className='chat-dis'>
+      <div ref={chatDisplayRef} className='chat-dis'>
         {messages.map((message) => (
           <div
             key={message.id}

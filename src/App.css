@@ -156,9 +156,74 @@ nav {
 }
 .gen-ad1,
 .gen-ad2 {
-  background-color: aqua;
   border-radius: 10px;
   margin-bottom: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.gen-ad1 {
+  align-items: center;
+  flex-direction: column;
+  text-decoration: none;
+  text-align: center;
+}
+.gen-ad1 p {
+  position: absolute;
+}
+#gen-sec1 {
+  font-size: 30px;
+  font-family: sans-serif;
+  color: white;
+  text-shadow: 2px 0 red, -2px 0 red, 0 2px red, 0 -2px red, 1px 1px red,
+    -1px -1px red, 1px -1px red, -1px 1px red;
+  top: 1px;
+}
+#gen-sec2 {
+  top: 80px;
+  font-size: 30px;
+  font-family: sans-serif;
+  color: white;
+  text-shadow: 2px 0 black, -2px 0 black, 0 2px black, 0 -2px black,
+    1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
+}
+#gen-sec3 {
+  top: 120px;
+  font-size: 40px;
+  font-family: sans-serif;
+  color: gold;
+  text-shadow: 2px 0 black, -2px 0 black, 0 2px black, 0 -2px black,
+    1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
+}
+.gen-ad1:hover,
+.gen-ad2:hover {
+  background-color: rgb(220, 220, 220);
+}
+.gen-ad2 p {
+  position: absolute;
+}
+#ad-sec1 {
+  top: 10px;
+  font-size: 30px;
+  font-family: sans-serif;
+  color: white;
+  text-shadow: 2px 0 black, -2px 0 black, 0 2px black, 0 -2px black,
+    1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
+  z-index: 1;
+}
+#ad-sec2 {
+  top: 70px;
+  z-index: 3;
+  font-size: 25px;
+  font-family: sans-serif;
+  color: gold;
+  text-shadow: 2px 0 black, -2px 0 black, 0 2px black, 0 -2px black,
+    1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
+}
+.gen-ad2 img {
+  height: 100%;
+  z-index: 2;
 }
 .gen-donation {
   display: flex;
