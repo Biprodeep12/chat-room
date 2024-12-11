@@ -58,7 +58,8 @@ nav {
   gap: 10px;
 }
 .chat-input input {
-  width: 500px;
+  width: 100%;
+  max-width: 500px;
   background-color: white;
   min-height: 30px;
   border-radius: 10px;
@@ -81,7 +82,8 @@ nav {
   font-weight: 1000;
   font-size: 20px;
   border: none;
-  width: 40px;
+  width: 100%;
+  max-width: 40px;
   border-radius: 10px;
   cursor: pointer;
 }
@@ -93,7 +95,8 @@ nav {
 .username-setup form {
   display: flex;
   flex-direction: column;
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
   height: 300px;
   background-color: rgb(32, 211, 32);
   border-radius: 20px;
@@ -133,7 +136,8 @@ nav {
   color: black;
 }
 .chat-header {
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
   height: 40px;
   display: flex;
   justify-content: center;
@@ -283,4 +287,22 @@ nav {
 .dont button:hover {
   background-color: white;
   transform: scale(1.05);
+}
+@media screen and (max-width: 1250px) {
+  .gen {
+    display: none;
+  }
+  .chat-cont {
+    display: grid;
+    grid-template-columns: 100%;
+  }
+  .username-setup form {
+    width: 95%;
+  }
+  .chat-header {
+    width: 95%;
+  }
+  .chat-input input {
+    width: 70%;
+  }
 }
